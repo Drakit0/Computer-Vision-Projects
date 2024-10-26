@@ -1,6 +1,0 @@
-\babel@toc {spanish}{}\relax 
-\setcounter {tocdepth}{-1}
-\contentsline {section}{Índice}{1}{section*.1}%
-\setcounter {tocdepth}{2}
-\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
-\contentsline {section}{\numberline {2}Rabo de gato}{2}{section.2}%
