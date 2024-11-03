@@ -171,15 +171,20 @@
 
 \newpage
 
+
 \section{Introducción}
 
-El procesamiento de imágenes es un área fundamental de la visión por ordenador que se enfoca en la manipulación y el análisis
+
+\vspace{1cm}
+
+El procesamiento de imágenes es un área fundamental de la visión por ordenador, esta se enfoca en la manipulación y el análisis
 de imágenes digitales. A diferencia de un ser humano, que puede interpretar imágenes de manera intuitiva, un ordenador necesita
 algoritmos específicos que le permitan extraer información útil de las matrices de píxeles que componen cada imagen. Estos 
 algoritmos permiten a los sistemas de visión por ordenador realizar tareas como la segmentación, la detección de bordes 
 y la aplicación de filtros, convirtiendo datos visuales en información comprensible.
 
 \vspace{0.5cm}
+
 La segmentación de imágenes por color es una técnica crucial que permite identificar y aislar objetos de interés en una imagen 
 basándose en sus características cromáticas. Este proceso es esencial en múltiples aplicaciones, desde la automatización 
 industrial hasta la medicina, donde la identificación precisa de regiones de interés puede marcar la diferencia en el análisis
@@ -187,74 +192,148 @@ y la toma de decisiones. La capacidad de un ordenador para diferenciar colores y
 adecuado es un paso inicial vital en la interpretación de las imágenes.
 
 \vspace{0.5cm}
-Además, la aplicación de filtros es otra herramienta poderosa en el procesamiento de imágenes. Filtros como el gaussiano, 
-Sobel y Canny se utilizan para suavizar imágenes, eliminar el ruido y detectar bordes, respectivamente. La detección de bordes
-es especialmente relevante, ya que resalta las transiciones significativas en una imagen, facilitando la identificación de
-  formas y estructuras. Al aplicar y comparar estos filtros, se pueden evaluar sus efectos en la calidad de la imagen y la
-efectividad del análisis posterior.
+La aplicación de filtros es otra herramienta relevante en el procesamiento de imágenes. Filtros como el gaussiano, el de
+Sobel o el de Canny se utilizan para suavizar imágenes, eliminar el ruido y detectar bordes, respectivamente. La detección de bordes
+es especialmente relevante, ya que resalta las transiciones significativas en una imagen, facilitando la identificación de 
+ formas y estructuras. Al aplicar y comparar estos filtros, se puede evaluar tanto la variación en la calidad de la imagen como
+la eficiencia en la detección de bordes.
 
 \vspace{0.5cm}
-Finalmente, el uso de operadores morfológicos complementa estas técnicas al permitir la manipulación de la estructura de los
-objetos en las imágenes a nivel de píxel. Este enfoque es fundamental para mejorar los resultados de la segmentación y la 
-detección, proporcionando una comprensión más profunda de las características presentes en las imágenes. En esta práctica, 
-se implementarán estas técnicas utilizando Python y las librerías OpenCV e Imageio principalmente.
+Finalmente, el uso de operadores morfológicos complementa estas técnicas al permitir la manipulación de la estructura de componentes
+de una imagen píxel a píxel. Se trata de un enfoque fundamental para mejorar los resultados de la segmentación y la 
+detección que además permite desarrollar una comprensión más profunda de las características presentes en las imágenes. En el siguiente estudio, 
+se llevarán a cabo implementaciones de las técnicas mencionadas a través de las librerías de Python OpenCv, Imageio y Numpy con el objetivo de
+desarrollar un conocimiento práctico de las herramientas de procesamiento de imágenes y su aplicación en la visión por ordenador.
 
 \newpage
 
+
 \section{Segmentación por color}
 
+
+\vspace{1cm}
+
 La segmentación de imágenes por colores es una técnica sencilla y útil en aplicaciones en las que se tiene un gran control
-sobre las condiciones de contorno: iluminación, tipo de objeto que se espera encontrar, colo de fondo, etc.
-En esta práctica, se enfocará en la segmentación de los colores blancos
-y naranjas en imágenes de peces. 
+sobre las condiciones de contorno: iluminación, tipo de objeto que se espera encontrar, color de fondo, etc.
+En un primer momento se realizaron pruebas de segmentación de imágenes con los colores naranja y blanco, sin embargo, posteriormente
+se realizó una adaptación que permite al usuario segmentar cualquier color de su elección.
 
-Para comenzar, se procede a cargar las imágenes desde la carpeta donde se almacenan los archivos de  las imágenes 
-a procesar. Una vez cargadas, se implementan métodos para visualizar y guardar las imágenes, permitiendo 
-una fácil manipulación y verificación de los resultados.
+\vspace{0.5cm}
 
-El siguiente paso consiste en cambiar el espacio de color de las imágenes de \textit{BGR} a \textit{HSV}, lo cual es esencial
-para una mejor discriminación de los colores de interés. Este cambio de espacio de color transforma la representación de los 
-colores, separando la crominancia de la intensidad, y facilita la identificación de los tonos deseados. Utilizando el método
-\textit{cv2.cvtColor()} de OpenCV, se transformarán las imágenes para prepararlas para la segmentación. Este cambio es similar
-a convertir un sistema de coordenadas cartesianas a uno polar, donde los colores se pueden manejar de manera más intuitiva.
+\subsection{Carga de imágenes}
 
-Una vez que las imágenes estén en el espacio de color adecuado, se procede a generar máscaras para los colores naranjas y 
-blancos, utilizando los métodos \textit{cv2.inRange()} y \textit{cv2.bitwise\_and()} de OpenCV. Estas máscaras permiten segmentar
-las partes relevantes de las imágenes, destacando los píxeles de interés y eliminando aquellos que no corresponden. 
+\vspace{0.5cm}
+
+Todo proceso de visión por ordenador comienza con la carga de las imágenes a procesar, sin embargo hay múltiples formas de llevar 
+a cabo este proceso. En el caso de la segmentación de imágenes por color este paso es especialmente importante. Para cargar las imágenes
+a partir de su ruta de almacenamiento (obtenida a través de \textit{glob.glob()}) se pueden usar dos procesos análogos:
+
+\vspace{0.5cm}
+
+\begin{itemize}
+  \item \textit{cv2.imread()}: La función de la librería \textit{cv2} carga las imágenes en formato RGB.
+
+  \item \textit{imageio.imread()}: La función de la librería \textit{imageio} carga las imágenes en formato BGR.
+\end{itemize}
+
+\vspace{0.5cm}
+
+Esta transformación de formato es relevante ya que si se diseña un algoritmo de segmentación de colores en un espacio, no funcionará 
+si recibe otro espacio de color ya que los canales de color se interpretan de manera diferente. Esto se puede observar al cargar 
+la misma imagen sin realizar ninguna transformación y visualizarla en ambos formatos:
+
+\vspace{0.5cm}
 
 \begin{figure}[H]
   \centering
-  \begin{minipage}[b]{0.45\textwidth}
+  \begin{minipage}[t]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{src/processed_data/orange_mask_0.png}
-      \caption{Imagen 1 original, dataset.}
-      \label{fig:izquierda1}
+      \includegraphics[width=\textwidth]{processed_data/cv2_charged_0.jpg} 
+      \caption{Imagen 1 cargada con \textit{cv2.imread()}, formato RGB, autoría propia.}
+      \label{fig:cv2_charged}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.45\textwidth}
+  \begin{minipage}[t]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{src/processed_data/orange_segmented_0.png}
-      \caption{Imagen 1 corregida, autoría propia.}
-      \label{fig:derecha1}
+      \includegraphics[width=\textwidth]{processed_data/imageio_charged_0.jpg}
+      \caption{Imagen 1 cargada con \textit{imageio.imread()}, formato RGB, autoría propia.}
+      \label{fig:imageio_charged}
+  \end{minipage}
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsection{Segmentación monocolor}
+
+\vspace{0.5cm}
+
+Cargadas ya las imágenes se procede a transformarlas al espacio de color HSV ya que genera un mayor contraste : Hue (brillo), Saturation (saturación) y Value (valor).
+Para ello se usa la función \textit{cv2.cvtColor()} de OpenCV, que recibe como argumentos la imagen y el espacio de color al que se desea transformar. Una vez que las 
+imágenes estén en el espacio de color adecuado, se procede a generar máscaras necesarias, que permiten segmentar los colores de interés. A continuación se muestran los
+valores de los umbrales HSV para las imágenes de naranja y blanco:
+
+\vspace{0.5cm}
+
+{\centering
+$\text{Naranja}_{min}$; H: 1, S: 190, V: 200 \\
+$\text{Naranja}_{max}$; H: 255, S: 255, V: 255 \\
+$\text{Blanco}_{min}$; H: 0, S: 0, V: 150 \\
+$\text{Blanco}_{max}$; H: 255, S: 50, V: 255 \\
+}
+
+\vspace{0.5cm}
+
+Posteriormente se hace uso de la función \textit{cv2.inRange()} de OpenCV, que recibe como argumentos la imagen en el espacio de color HSV, los valores mínimos y máximos 
+aceptados para cada canal de color. Esta función devuelve una máscara binaria en la que los píxeles que cumplen con los umbrales establecidos se marcan como blancos y 
+los que no, permanecen negros. Finalmente, se emplea la función \textit{cv2.bitwise\_and()}, que opera examinando bit a bit y realizando la operación AND. Esta función se aplica 
+sobre la máscara blanca creada y sobre la imagen original, de tal manera que sólo se seleccionen aquellos bits marcados como unos en la máscara, tengan el color que tengan 
+en la imagen original. Se remarca que se segmenta cualquier color que esté en la zona ''asociada al color a segmentar'' porque en la figura 4 se puede observar una tonalidad 
+del naranja cercana al amarillo o en la 6 como hay fragmentos del segmento que no son de color blanco puro. Esto se debe al hecho de que los filtros diseñados no son perfectos,
+se han diseñado para que seleccionen la máxima cantidad de color de un conjunto genérico de imágenes, eliminar ese ''ruido'' sobre los segmentos de determinadas imágenes puede 
+producir ''overfitting'' lo cual reduce las posibilidades de generalización de la segmentación.
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{processed_data/orange_mask_0.jpg} 
+      \caption{Máscara de naranja de la imagen 1, autoría propia.}
+      \label{fig:white_mask}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{processed_data/orange_segmented_0.jpg}
+      \caption{Segmentación de naranja de la imagen 1, autoría propia.}
+      \label{fig:white_segmented}
   \end{minipage}
   
   \vspace{1cm} 
 
-  \begin{minipage}[b]{0.45\textwidth}
+  \begin{minipage}[t]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{src/processed_data/white_mask_0.png}
-      \caption{Imagen 2 original, dataset.}
-      \label{fig:izquierda2}
+      \includegraphics[width=\textwidth]{processed_data/white_mask_0.jpg}
+      \caption{Máscara de blanco de la imagen 1, autoría propia.}
+      \label{fig:orange_mask}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.45\textwidth}
+  \begin{minipage}[t]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{src/processed_data/white_segmented_0.png}
-      \caption{Imagen 2 corregida, autoría propia.}
-      \label{fig:derecha2}
+      \includegraphics[width=\textwidth]{processed_data/white_segmented_0.jpg}
+      \caption{Segmentación de blanco de la imagen 1, autoría propia.}
+      \label{fig:orange_segmented}
   \end{minipage}
 \end{figure}
 
+\vspace{0.5cm}
+
+\subsection{Segmentación multicolor}
+
+\vspace{0.5cm}
+
+El 
 
 \section{Filtro Gaussiano y Detección de bordes: Sobel y Canny}
 
@@ -276,23 +355,23 @@ Asimismo, se implementa el método de erosión, que reduce las áreas blancas de
 la dilatación, se utiliza un padding para conservar las dimensiones. En este caso, cada píxel se reemplaza 
 por el valor mínimo de sus vecinos en el kernel.
 
-\begin{figure}[h!]
-  \centering
-  \begin{minipage}[b]{0.45\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{src/morphological_operators/custom_dilate_0.png}
-      \caption{Ajuste fino de intersección de cuadrícula, autoría propia.}
-      \label{fig:izquierda1}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.45\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{src/morphological_operators/custom_erode_0.png}
-      \caption{Ajuste fino de intersección de cuadrícula, autoría propia.}
-      \label{fig:derecha1}
-  \end{minipage}
+% \begin{figure}[h!]
+%   \centering
+%   \begin{minipage}[b]{0.45\textwidth}
+%       \centering
+%       \includegraphics[width=\textwidth]{smorphological_operators/custom_dilate_0.png}
+%       \caption{Ajuste fino de intersección de cuadrícula, autoría propia.}
+%       \label{fig:izquierda1}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[b]{0.45\textwidth}
+%       \centering
+%       \includegraphics[width=\textwidth]{src/morphological_operators/custom_erode_0.png}
+%       \caption{Ajuste fino de intersección de cuadrícula, autoría propia.}
+%       \label{fig:derecha1}
+%   \end{minipage}
 
-\end{figure}
+% \end{figure}
 
 \end{document}
 
