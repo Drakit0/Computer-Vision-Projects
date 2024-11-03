@@ -105,3 +105,5 @@ def get_hsv_color_ranges(image: np.array):
             break
 
     cv2.destroyAllWindows()
+    
+    return lower, upper
