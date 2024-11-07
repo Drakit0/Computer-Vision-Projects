@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.4)  7 NOV 2024 01:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.4)  7 NOV 2024 10:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -846,12 +846,12 @@ l.173 \newpage
 ]
 
 [2]
-<processed_data/cv2_charged_0.jpg, id=50, 276.03125pt x 184.69pt>
+<processed_data/cv2_charged_0.jpg, id=60, 276.03125pt x 184.69pt>
 File: processed_data/cv2_charged_0.jpg Graphic file (type jpg)
 <use processed_data/cv2_charged_0.jpg>
 Package pdftex.def Info: processed_data/cv2_charged_0.jpg  used on input line 254.
 (pdftex.def)             Requested size: 149.37958pt x 99.95374pt.
-<processed_data/imageio_charged_0.jpg, id=51, 276.03125pt x 184.69pt>
+<processed_data/imageio_charged_0.jpg, id=61, 276.03125pt x 184.69pt>
 File: processed_data/imageio_charged_0.jpg Graphic file (type jpg)
 <use processed_data/imageio_charged_0.jpg>
 Package pdftex.def Info: processed_data/imageio_charged_0.jpg  used on input line 261.
@@ -869,22 +869,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has
                                                   \__shipout_drop_firstpage_...
 l.275 
        <./processed_data/cv2_charged_0.jpg> <./processed_data/imageio_charged_0.jpg>]
-<processed_data/orange_mask_0.jpg, id=60, 276.03125pt x 184.69pt>
+<processed_data/orange_mask_0.jpg, id=70, 276.03125pt x 184.69pt>
 File: processed_data/orange_mask_0.jpg Graphic file (type jpg)
 <use processed_data/orange_mask_0.jpg>
 Package pdftex.def Info: processed_data/orange_mask_0.jpg  used on input line 301.
 (pdftex.def)             Requested size: 128.0387pt x 85.6714pt.
-<processed_data/orange_segmented_0.jpg, id=61, 276.03125pt x 184.69pt>
+<processed_data/orange_segmented_0.jpg, id=71, 276.03125pt x 184.69pt>
 File: processed_data/orange_segmented_0.jpg Graphic file (type jpg)
 <use processed_data/orange_segmented_0.jpg>
 Package pdftex.def Info: processed_data/orange_segmented_0.jpg  used on input line 308.
 (pdftex.def)             Requested size: 128.0387pt x 85.6714pt.
-<processed_data/white_mask_0.jpg, id=62, 276.03125pt x 184.69pt>
+<processed_data/white_mask_0.jpg, id=72, 276.03125pt x 184.69pt>
 File: processed_data/white_mask_0.jpg Graphic file (type jpg)
 <use processed_data/white_mask_0.jpg>
 Package pdftex.def Info: processed_data/white_mask_0.jpg  used on input line 319.
 (pdftex.def)             Requested size: 128.0387pt x 85.6714pt.
-<processed_data/white_segmented_0.jpg, id=63, 276.03125pt x 184.69pt>
+<processed_data/white_segmented_0.jpg, id=73, 276.03125pt x 184.69pt>
 File: processed_data/white_segmented_0.jpg Graphic file (type jpg)
 <use processed_data/white_segmented_0.jpg>
 Package pdftex.def Info: processed_data/white_segmented_0.jpg  used on input line 326.
@@ -902,17 +902,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has
                                                   \__shipout_drop_firstpage_...
 l.331 
        <./processed_data/orange_mask_0.jpg> <./processed_data/orange_segmented_0.jpg>]
-<processed_data/fish_mask_0.jpg, id=72, 276.03125pt x 184.69pt>
+<processed_data/fish_mask_0.jpg, id=82, 276.03125pt x 184.69pt>
 File: processed_data/fish_mask_0.jpg Graphic file (type jpg)
 <use processed_data/fish_mask_0.jpg>
 Package pdftex.def Info: processed_data/fish_mask_0.jpg  used on input line 346.
 (pdftex.def)             Requested size: 128.0387pt x 85.6714pt.
-<processed_data/fish_segmented_0.jpg, id=73, 276.03125pt x 184.69pt>
+<processed_data/fish_segmented_0.jpg, id=83, 276.03125pt x 184.69pt>
 File: processed_data/fish_segmented_0.jpg Graphic file (type jpg)
 <use processed_data/fish_segmented_0.jpg>
 Package pdftex.def Info: processed_data/fish_segmented_0.jpg  used on input line 352.
 (pdftex.def)             Requested size: 128.0387pt x 85.6714pt.
-<data/king_of_the_air.png, id=74, 320.19624pt x 257.96375pt>
+<data/king_of_the_air.png, id=84, 320.19624pt x 257.96375pt>
 File: data/king_of_the_air.png Graphic file (type png)
 <use data/king_of_the_air.png>
 Package pdftex.def Info: data/king_of_the_air.png  used on input line 362.
@@ -922,7 +922,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 363--363
 \OT1/cmr/m/n/12 https://www.redbull.com/es-es/events/king-of-
  []
 
-<processed_data/king_of_the_air_segmented.jpg, id=75, 320.19624pt x 257.96375pt>
+<processed_data/king_of_the_air_segmented.jpg, id=85, 320.19624pt x 257.96375pt>
 File: processed_data/king_of_the_air_segmented.jpg Graphic file (type jpg)
 <use processed_data/king_of_the_air_segmented.jpg>
 Package pdftex.def Info: processed_data/king_of_the_air_segmented.jpg  used on input line 369.
@@ -965,12 +965,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) ha
                                                   \__shipout_drop_firstpage_...
 l.388 
        <./processed_data/white_mask_0.jpg> <./processed_data/white_segmented_0.jpg> <./processed_data/fish_mask_0.jpg> <./processed_data/fish_segmented_0.jpg> <./data/king_of_the_air.png> <./processed_data/king_of_the_air_segmented.jpg>]
-<data/000.jpg, id=88, 276.03125pt x 184.69pt>
+<data/000.jpg, id=98, 276.03125pt x 184.69pt>
 File: data/000.jpg Graphic file (type jpg)
 <use data/000.jpg>
 Package pdftex.def Info: data/000.jpg  used on input line 419.
 (pdftex.def)             Requested size: 170.71393pt x 114.2276pt.
-<processed_data/gaussian_blur_0.jpg, id=89, 276.03125pt x 184.69pt>
+<processed_data/gaussian_blur_0.jpg, id=99, 276.03125pt x 184.69pt>
 File: processed_data/gaussian_blur_0.jpg Graphic file (type jpg)
 <use processed_data/gaussian_blur_0.jpg>
 Package pdftex.def Info: processed_data/gaussian_blur_0.jpg  used on input line 427.
@@ -978,12 +978,12 @@ Package pdftex.def Info: processed_data/gaussian_blur_0.jpg  used on input line 
 
 
 [6]
-<processed_data/sobel_0.jpg, id=102, 276.03125pt x 184.69pt>
+<processed_data/sobel_0.jpg, id=112, 276.03125pt x 184.69pt>
 File: processed_data/sobel_0.jpg Graphic file (type jpg)
 <use processed_data/sobel_0.jpg>
 Package pdftex.def Info: processed_data/sobel_0.jpg  used on input line 460.
 (pdftex.def)             Requested size: 170.71393pt x 114.2276pt.
-<processed_data/scikit_sobel_0.jpg, id=103, 276.03125pt x 184.69pt>
+<processed_data/scikit_sobel_0.jpg, id=113, 276.03125pt x 184.69pt>
 File: processed_data/scikit_sobel_0.jpg Graphic file (type jpg)
 <use processed_data/scikit_sobel_0.jpg>
 Package pdftex.def Info: processed_data/scikit_sobel_0.jpg  used on input line 468.
@@ -1001,18 +1001,139 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) ha
                                                   \__shipout_drop_firstpage_...
 l.474 
        <./data/000.jpg> <./processed_data/gaussian_blur_0.jpg>]
+<processed_data/prewitt_0.jpg, id=123, 276.03125pt x 184.69pt>
+File: processed_data/prewitt_0.jpg Graphic file (type jpg)
+<use processed_data/prewitt_0.jpg>
+Package pdftex.def Info: processed_data/prewitt_0.jpg  used on input line 506.
+(pdftex.def)             Requested size: 149.37958pt x 99.95374pt.
+<processed_data/scikit_prewitt_0.jpg, id=124, 276.03125pt x 184.69pt>
+File: processed_data/scikit_prewitt_0.jpg Graphic file (type jpg)
+<use processed_data/scikit_prewitt_0.jpg>
+Package pdftex.def Info: processed_data/scikit_prewitt_0.jpg  used on input line 514.
+(pdftex.def)             Requested size: 149.37958pt x 99.95374pt.
+
 
 [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.517 \end{document}
-                    
+l.520 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.517 \end{document}
-                     <./processed_data/sobel_0.jpg> <./processed_data/scikit_sobel_0.jpg>] (Informe Ruíz Lydia Tuñón Pablo.aux
+l.520 
+       <./processed_data/sobel_0.jpg> <./processed_data/scikit_sobel_0.jpg>]
+<processed_data/canny_0.jpg, id=133, 276.03125pt x 184.69pt>
+File: processed_data/canny_0.jpg Graphic file (type jpg)
+<use processed_data/canny_0.jpg>
+Package pdftex.def Info: processed_data/canny_0.jpg  used on input line 541.
+(pdftex.def)             Requested size: 149.37958pt x 99.95374pt.
+
+Underfull \hbox (badness 6157) in paragraph at lines 542--542
+[]\OT1/cmr/m/n/12 Figura 17: []Aplicaci^^Son de
+ []
+
+<processed_data/scikit_canny_0.jpg, id=134, 276.03125pt x 184.69pt>
+File: processed_data/scikit_canny_0.jpg Graphic file (type jpg)
+<use processed_data/scikit_canny_0.jpg>
+Package pdftex.def Info: processed_data/scikit_canny_0.jpg  used on input line 548.
+(pdftex.def)             Requested size: 149.37958pt x 99.95374pt.
+
+Underfull \hbox (badness 6157) in paragraph at lines 549--549
+[]\OT1/cmr/m/n/12 Figura 18: []Aplicaci^^Son de
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 549--549
+\OT1/cmr/m/n/12 Canny con sci-kit so-bre la
+ []
+
+
+
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.566 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.16}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.566 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.17}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.566 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.18}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.566 
+       <./processed_data/prewitt_0.jpg> <./processed_data/scikit_prewitt_0.jpg> <./processed_data/canny_0.jpg> <./processed_data/scikit_canny_0.jpg>]
+<noisy_data/noisy_0.jpg, id=145, 276.03125pt x 184.69pt>
+File: noisy_data/noisy_0.jpg Graphic file (type jpg)
+<use noisy_data/noisy_0.jpg>
+Package pdftex.def Info: noisy_data/noisy_0.jpg  used on input line 587.
+(pdftex.def)             Requested size: 128.0387pt x 85.6714pt.
+
+
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.19}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.597 
+       <./noisy_data/noisy_0.jpg>]
+<processed_data/noisy_sobel_0.jpg, id=152, 276.03125pt x 184.69pt>
+File: processed_data/noisy_sobel_0.jpg Graphic file (type jpg)
+<use processed_data/noisy_sobel_0.jpg>
+Package pdftex.def Info: processed_data/noisy_sobel_0.jpg  used on input line 604.
+(pdftex.def)             Requested size: 170.71393pt x 114.2276pt.
+<processed_data/noisy_sobel_gauss_0.jpg, id=153, 276.03125pt x 184.69pt>
+File: processed_data/noisy_sobel_gauss_0.jpg Graphic file (type jpg)
+<use processed_data/noisy_sobel_gauss_0.jpg>
+Package pdftex.def Info: processed_data/noisy_sobel_gauss_0.jpg  used on input line 612.
+(pdftex.def)             Requested size: 170.71393pt x 114.2276pt.
+
+
+[11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.20}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.625 \newpage
+              
+pdfTeX warning (ext4): destination with the same identifier (name{figure.21}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.625 \newpage
+               <./processed_data/noisy_sobel_0.jpg> <./processed_data/noisy_sobel_gauss_0.jpg>]
+<processed_data/dilated_0.jpg, id=161, 276.03125pt x 184.69pt>
+File: processed_data/dilated_0.jpg Graphic file (type jpg)
+<use processed_data/dilated_0.jpg>
+Package pdftex.def Info: processed_data/dilated_0.jpg  used on input line 661.
+(pdftex.def)             Requested size: 170.71393pt x 114.2276pt.
+
+
+[12]
+<processed_data/eroded_0.jpg, id=168, 276.03125pt x 184.69pt>
+File: processed_data/eroded_0.jpg Graphic file (type jpg)
+<use processed_data/eroded_0.jpg>
+Package pdftex.def Info: processed_data/eroded_0.jpg  used on input line 684.
+(pdftex.def)             Requested size: 170.71393pt x 114.2276pt.
+
+
+[13
+pdfTeX warning (ext4): destination with the same identifier (name{figure.22}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.691 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.23}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.691 \end{document}
+                     <./processed_data/dilated_0.jpg> <./processed_data/eroded_0.jpg>] (Informe Ruíz Lydia Tuñón Pablo.aux
 LaTeX Info: Redefining \. on input line 15.
 LaTeX Info: Redefining \% on input line 15.
 )
@@ -1026,17 +1147,17 @@ L3 programming layer <2024-10-09>
 ### simple group (level 1) entered at line 146 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 46006 strings out of 473701
- 1076151 string characters out of 5719417
- 1951549 words of memory out of 5000000
- 68498 multiletter control sequences out of 15000+600000
- 575777 words of font info for 77 fonts, out of 8000000 for 9000
+ 46106 strings out of 473701
+ 1078900 string characters out of 5719417
+ 1951550 words of memory out of 5000000
+ 68577 multiletter control sequences out of 15000+600000
+ 576114 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,12n,107p,871b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on "Informe Ruíz Lydia Tuñón Pablo.pdf" (9 pages, 461509 bytes).
+ 99i,12n,107p,871b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/pablo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
+Output written on "Informe Ruíz Lydia Tuñón Pablo.pdf" (14 pages, 675421 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 174 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 298 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
+ 259 words of extra memory for PDF output out of 10000 (max. 10000000)
 

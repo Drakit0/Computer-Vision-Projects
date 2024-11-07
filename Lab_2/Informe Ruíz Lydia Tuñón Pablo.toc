@@ -10,4 +10,10 @@
 \contentsline {section}{\numberline {3}Operador Gaussiano y detectores de bordes: Sobel y Canny}{6}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Operador Gaussiano}{6}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Detector Sobel}{7}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Operadores morfológicos}{8}{section.4}%
+\contentsline {subsubsection}{\numberline {3.2.1}Filtro de Prewitt}{8}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Detector de bordes Canny}{9}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Mejora de detección de bordes}{10}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Operadores morfológicos}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Binarización de una imagen}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Dilatación}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Erosión}{13}{subsection.4.3}%
