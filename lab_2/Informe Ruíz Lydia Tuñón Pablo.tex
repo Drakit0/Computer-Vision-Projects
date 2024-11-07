@@ -193,13 +193,15 @@ y la toma de decisiones. La capacidad de un ordenador para diferenciar colores y
 adecuado es un paso inicial vital en la interpretación de las imágenes.
 
 \vspace{0.5cm}
-La aplicación de filtros es otra herramienta relevante en el procesamiento de imágenes. Filtros como el gaussiano, el de
+
+La aplicación de filtros es otra herramienta relevante en el procesamiento de imágenes. El operador gaussiano, con combinación con los filtros de
 Sobel o el de Canny se utilizan para suavizar imágenes, eliminar el ruido y detectar bordes, respectivamente. La detección de bordes
 es especialmente relevante, ya que resalta las transiciones significativas en una imagen, facilitando la identificación de 
  formas y estructuras. Al aplicar y comparar estos filtros, se puede evaluar tanto la variación en la calidad de la imagen como
 la eficiencia en la detección de bordes.
 
 \vspace{0.5cm}
+
 Finalmente, el uso de operadores morfológicos complementa estas técnicas al permitir la manipulación de la estructura de componentes
 de una imagen píxel a píxel. Se trata de un enfoque fundamental para mejorar los resultados de la segmentación y la 
 detección que además permite desarrollar una comprensión más profunda de las características presentes en las imágenes. En el siguiente estudio, 
@@ -372,13 +374,109 @@ Para ejemplificar este proceso, se han segmentado los colores naranja, blanco de
 \end{figure}
 
 
-\section{Filtro Gaussiano y Detección de bordes: Sobel y Canny}
+\section{Operador Gaussiano y detectores de bordes: Sobel y Canny}
 
 
 \vspace{1cm}
 
 El filtrado de imágenes es una técnica fundamental en el procesamiento de imágenes que permite mejorar la calidad de las imágenes, eliminar el ruido y resaltar 
-características de interés. Habitualmente los
+características de interés. Habitualmente el filtrado se emplea para resaltar o extraer los bordes de una umagen, ya que estos contienen información relevante
+sobre la forma y estructura de los elementos presentes en la imagen. Se recuerda que un ordenador cuando procesa una imagen no puede interpretarla de forma intuitiva,
+por lo que una imagen de un cubo, aunque el ojo humano pueda identificarlo, para un ordenador es simplemente un conjunto de píxeles, de esta manera se puede extraer un
+conjunto de bordes, que si se unen de forma adecuada, se puede identificar el cubo.  Para el filtrado de imágenes se ha estudiado el operador gaussiano así como los 
+filtros Sobel y Canny.
+
+\vspace{0.5cm}
+
+\subsection{Operador Gaussiano}
+
+\vspace{0.5cm}
+
+El operador gaussiano pertenece al conjunto de los operadores LSI, este tipo de operadores cumplen con la propiedad de linealidad y desplazamiento invariante. La propiedad de
+linealidad implica que los píxeles de salida son una combinación lineal pesada de los píxeles de entrada (es decir una convolución), mientras que la propiedad de desplazamiento invariante 
+implica que se realiza la misma operación en todos los píxeles de la imagen. El operador gaussiano se emplea para suavizar las imágenes, eliminando el ruido y reduciendo la 
+cantidad de detalles presentes, esto se consigue tomando los pesos de la combinación de píxeles de un kernel (o matriz cuadrada de número impar de columnas) gaussiano. 
+La función gaussiana se define como:
+
+\vspace{0.5cm}
+
+\begin{equation}
+  G(i, j) = \frac{1}{2\pi\sigma^2}e^{-\frac{i^2 + j^2}{2\sigma^2}}
+\end{equation}
+
+\vspace{0.5cm}
+
+A través de la ecuación anterior se extrae el kernel gaussiano, este se aplica a la imagen original mediante la función \textit{cv2.filter2D()}. Dicha función recombina los 
+píxeles de la imagen original con los pesos del kernel, reduciendo el detalle pero proporcionando una mayor difernciación de los elementos de la imagen. Precisamente por dicha 
+característica se aplicará el operador antes de aplicar otros más especificos4. A continuación se muestra la aplicación del filtro gaussiano a la imagen 1: 
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+
+\begin{minipage}[t]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{data/000.jpg} 
+    \caption{Imagen 1, set de imagenes proporcionadas.}
+    \label{fig:original-image}
+\end{minipage}
+\hfill
+\hspace{1.5cm}
+\begin{minipage}[t]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{processed_data/gaussian_blur_0.jpg} 
+    \caption{Operador gaussiano sobre la imagen 1, autoría propia.}
+    \label{fig:gaussian_filter}
+\end{minipage}
+
+\end{figure}
+
+\subsection{Detector Sobel}
+
+\vspace{0.5cm}
+
+El operador Sobel es uno de los empleados en la detección de bordes. Este operador se basa en la convolución de la imagen original nuevamente con kernels de pesado.
+En el entorno del estudio realizado, se usa el kernel de Sobel respecto a los ejes x e y, que se definen como:
+
+\vspace{0.5cm}
+
+\[
+  S_x = \begin{bmatrix} -1 & -2 & -1 \\ 0 & 0 & 0 \\ 1 & 2 & 1 \end{bmatrix} \quad S_y =  \begin{bmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{bmatrix}
+\]
+
+\vspace{0.5cm}
+
+El operador actua como una versión discreta del gradiente de una imagen, el cual se define como el vector que apunta en la dirección de la mayor variación de intensidad.
+La aplicación del operador Sobel a una imagen permite resaltar los bordes de la imagen, ya que los píxeles de los bordes presentan una mayor variación de intensidad
+en comparación con los píxeles interiores. El operador se rota para no tener en cuenta los píxeles de alta variación en la dirección del borde a resaltar. A continuación se 
+muestra una imagen con la detección sobel calculada a través de distintas formas:
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+
+  \begin{minipage}[t]{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{processed_data/sobel_0.jpg} 
+      \caption{Aplicación de sobel con opencv sobre la imagen 1, autoría propia.}
+      \label{fig:cv2-sobel}
+  \end{minipage}
+  \hfill
+  \hspace{1.5cm}
+  \begin{minipage}[t]{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{processed_data/scikit_sobel_0.jpg} 
+      \caption{Aplicación de sobel con scikit sobre la imagen 1, autoría propia.}
+      \label{fig:scikit-sobel}
+  \end{minipage}
+  
+\end{figure}
+
+\vspace{0.5cm}
+
+La figura 13 muestra el resultado de aplicar el operador sobel(en vertical y horizontal) a través de la función \textit{cv2.filter2D()}
+mientras que la figura 14 representa el resultado de aplicar el operador sobel a través de la función \textit{scikit.filters.sobel()} de la librería scikit-image.
+Ambas funciones son equivalentes, esto se puede observar en la clara similitud entre las imágenes filtradas.
 
 \section{Operadores morfológicos}
 
