@@ -475,44 +475,218 @@ muestra una imagen con la detección sobel calculada a través de distintas form
 \vspace{0.5cm}
 
 La figura 13 muestra el resultado de aplicar el operador sobel(en vertical y horizontal) a través de la función \textit{cv2.filter2D()}
-mientras que la figura 14 representa el resultado de aplicar el operador sobel a través de la función \textit{scikit.filters.sobel()} de la librería scikit-image.
-Ambas funciones son equivalentes, esto se puede observar en la clara similitud entre las imágenes filtradas.
+mientras que la figura 14 representa el resultado de aplicar el operador sobel a través de la función \textit{skimage.filters.sobel()} de la librería scikit-image.
+Ambas funciones son equivalentes, esto se puede observar en la gran similitud entre las imágenes filtradas, aunque la función de scikit-image, parece que marcad
+de forma más suave los bordes de la imagen.
+
+\vspace{0.5cm}
+
+\subsubsection{Filtro de Prewitt}
+
+El filtro de Prewitt es un operador de detección de bordes aparentemente idéntico al de Sobel, con una pequeña variación en el kernel. Se sustituyen
+los doses por unos de tal manera que se pesa de la misma forma los píxeles de la imagen en la dirección del borde:
+
+\vspace{0.5cm}
+
+\[
+  P_x = \begin{bmatrix} -1 & -1 & -1 \\ 0 & 0 & 0 \\ 1 & 1 & 1 \end{bmatrix} \quad P_y =  \begin{bmatrix} -1 & 0 & 1 \\ -1 & 0 & 1 \\ -1 & 0 & 1 \end{bmatrix}
+\]
+
+\vspace{0.5cm}
+
+La aplicación del filtro de Prewitt sobre la imagen 1 se muestra en las figura 15 y 16, en ella se puede apreciar la gran similitud con las imágenes 13 y 14. 
+Esto se debe a la similitud entre los kernels de Sobel y Prewitt, que aunque no son idénticos, son muy parecidos:
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+
+  \begin{minipage}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{processed_data/prewitt_0.jpg} 
+      \caption{Aplicación de prewitt con opencv sobre la imagen 1, autoría propia.}
+      \label{fig:cv2-prewitt}
+  \end{minipage}
+  \hfill
+  \hspace{1.5cm}
+  \begin{minipage}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{processed_data/scikit_prewitt_0.jpg} 
+      \caption{Aplicación de prewitt con scikit sobre la imagen 1, autoría propia.}
+      \label{fig:scikit-prewitt}
+  \end{minipage}
+  
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsection{Detector de bordes Canny}
+
+\vspace{0.5cm}
+
+El operador Canny toma el fundamento teórico de los operadores anteriores, pero añade un paso adicional de ''supresión de
+no máximos'', dicho procesado es un algoritmo de reducción de ruido alrededor de los bordes detectados con Sobel o Prewitt.
+Esta limpieza se realiza clasificando un pixel en las variaciones más comunes de borde (0º, 45º, 90º y 135º) para posteriormente
+comparar el valor del pixel con los de los píxeles vecinos en la dirección del borde. En caso de que el pixel sea el máximo del 
+conjunto evaluado, se mantiene, en caso contrario se elimina. De esta manera sólo se conservan los píxeles más relevantes de 
+los bordes detectados, eliminando el posible ruido así como las detecciones menos precisas. A continuación se la aplicación de
+un filtro Canny a la imagen 1:
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{processed_data/canny_0.jpg} 
+      \caption{Aplicación de Canny con opencv sobre la imagen 1, autoría propia.}
+      \label{fig:cv2-canny}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{processed_data/scikit_canny_0.jpg} 
+      \caption{Aplicación de Canny con scikit sobre la imagen 1, autoría propia.}
+      \label{fig:scikit-canny}
+  \end{minipage}
+\end{figure}
+
+\vspace{1cm}
+
+La figura 17 muestra el resultado de aplicar el operador Canny (en vertical y horizontal) a través de la función \textit{cv2.filter2D()}, 
+para luego suprimir el ruido a mediante la función \textit{utils.non\_max\_suppression()}. La imagen 18 representa el resultado de aplicar 
+el operador Canny con la función \textit{skimage.feature.canny()} de la librería scikit-image. De todos los casos estudiados, este es el 
+único en el que se aprecia una diferencia significativa entre las librerías de filtrado usadas. Es cierto que la imagen 17 no contiene nada 
+de ruido, pero apenas es capaz de identificar los bordes del pez, mientras que la imagen 18 es capaz de identificar los bordes del pez, 
+pero también los del fondo. Es más, parece que no produce una mejora significativa ya que al comparar la imagen 18 con la 16 se ve como algunos 
+bordes del pez en lugar de ser más finos y precisos son más imprecisos y dobles. Con el objetivo de ampliar la supresión de ruido y mejorar 
+la detección de bordes se valora la opción de modificar la función de \textit(utils.non\_max\_suppression()) para que sea algo menos restrictiva.
+También se considera que realizar erosión (un proceso que se explicará más adelante) sobre la imagen filtrada con sobel o prewitt puede mejorar
+la futura supresión de ruido.
+
+\vspace{0.5cm}
+
+\subsection{Mejora de detección de bordes}
+
+\vspace{0.5cm}
+
+Tal y como se comentó en el apartado del operador gaussiano, aplicarlo antes de aplicar cualquier otro borde es una buena práctica ya que 
+permitirá un mejor filtrado de los bordes. Es una práctica que se ha llevado a cabo en todas las ejecuciones de los operadores de detección de bordes,
+pero que no se explicó en su momento debido a que no se tenía el fundamento teórico sobre el funcionamiento de los operadores. Con el fin de no volver a
+realizar todos los filtrados de bordes para llegar a un análisis similar al ya producido, se va a hacer la siguiente prueba. Se va a aplicar un ruido
+gausiano sobre las imágenes originales, esto implica que a cada píxel se le sumará un valor aleatorio de acuerdo a una distribución normal de media 127 
+y desviación típica 25. La media es el valor medio que puede tomar un píxel y la desviación típica es una que permite ver el ruido en la imagen sin tardar
+un tiempo excesivo en ejecutar:
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.3\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{noisy_data/noisy_0.jpg} 
+      \caption{Ruido gaussiano sobre la imagen 1, autoría propia.}
+      \label{fig:gaussian_noise}
+  \end{minipage}
+\end{figure}
+
+\vspace{0.5cm}
+
+A continuación se va a aplicar el operador Sobel sobre la imagen con ruido de dos formas, en la primera no se va a aplicar el operador gaussiano mientras 
+que en la segunda se va a realizar el filtrado gaussiano antes de aplicar el operador Sobel:
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+  \centering  
+  \begin{minipage}[t]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{processed_data/noisy_sobel_0.jpg}
+    \caption{Aplicación de Sobel sobre la imagen 1 con ruido, autoría propia.}
+    \label{fig:noisy-sobel}
+  \end{minipage}
+  \hspace{1.5cm}
+  \centering
+  \begin{minipage}[t]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{processed_data/noisy_sobel_gauss_0.jpg}
+    \caption{Aplicación de Gauss y posteriormente de Sobel sobre la imagen 1 con ruido, autoría propia.}
+    \label{fig:noisy-gaussian-sobel}
+  \end{minipage}
+\end{figure}
+
+\vspace{0.5cm}
+
+Tal y como se puede observar en las figuras anteriores, la aplicación del operador gaussiano antes de extraer los bordes con Sobel permite una mejor detección de los mismos.
+No sólo se eliminan los puntos detectados debido al ruido, sino que se resaltan más los bordes del pez. Este resultado es el esperado ya que el operador gaussiano se encarga de
+suavizar la imagen, eliminando el ruido y resaltando las características de interés. Es por ello por lo que se ha realizado un filtrado gaussiano antes de aplicar los operadores
+expuestos hasta el momento.
+
+\newpage
 
 \section{Operadores morfológicos}
 
-En esta sección, se implementan los operadores morfológicos de dilatación y erosión
-utilizando un kernel de \(3 \times 3\) con valores de \(255\) (blanco) como structuring element. 
+A lo largo de la siguiente sección, se estudiarán los operadores morfológicos de dilatación y de erosión. Los operadores morfológicos son relevantes ya que permiten manipular una imágen 
+píxel a píxel. Las aplicaciones son múltiples y variadas en el campo de la visión por ordenador: segmentación, detección de bordes... Un operador morfológico se basa en asignar a un píxel 
+el máximo o el mínimo de los valores de los píxeles vecinos. Es cierto que se podría aplicar un operador morfológico a una imagen en color, pero habría que dividir la imagen en canales y 
+únicamente sería una repetición del proceso. También se puede aplicar sobre una escala de grises, pero para obtener imágenes más puras desde un principio se van a usar imágenes binarias.
 
-Se define el método de binarización, el cual convierte una imagen a escala de grises a una imagen 
-binaria utilizando un umbral de \(127\). Este método emplea la función \textit{cv2.threshold} de 
-OpenCV para realizar la conversión.
+\vspace{0.5cm}
 
-Se implementa el método de dilatación, que consiste en ampliar las áreas blancas de la imagen binaria. 
-Para ello, se utiliza un padding de la imagen original para mantener las dimensiones tras el procesamiento. 
-En este método, se recorren todos los píxeles de la imagen, y se reemplaza cada píxel por el valor máximo 
-de sus vecinos en el kernel.
+\subsection{Binarización de una imagen}
 
-Asimismo, se implementa el método de erosión, que reduce las áreas blancas de la imagen. Al igual que en 
-la dilatación, se utiliza un padding para conservar las dimensiones. En este caso, cada píxel se reemplaza 
-por el valor mínimo de sus vecinos en el kernel.
+\vspace{0.5cm}
 
-% \begin{figure}[h!]
-%   \centering
-%   \begin{minipage}[b]{0.45\textwidth}
-%       \centering
-%       \includegraphics[width=\textwidth]{smorphological_operators/custom_dilate_0.png}
-%       \caption{Ajuste fino de intersección de cuadrícula, autoría propia.}
-%       \label{fig:izquierda1}
-%   \end{minipage}
-%   \hfill
-%   \begin{minipage}[b]{0.45\textwidth}
-%       \centering
-%       \includegraphics[width=\textwidth]{src/morphological_operators/custom_erode_0.png}
-%       \caption{Ajuste fino de intersección de cuadrícula, autoría propia.}
-%       \label{fig:derecha1}
-%   \end{minipage}
+La binarización de una imagen es un proceso en el que se convierte una imagen en escala de grises a una imagen cuyos únicos colores presentes son el blanco y el negro. Esto se realiza a través
+de un threshold o límite, una vez establecido, todo pixel con un valor inferior al mismo será asociado al 0 (negros) mientras que el resto de píxeles se igualarán a 1 (blancos).
 
-% \end{figure}
+\vspace{0.5cm}
+
+\subsection{Dilatación}
+
+\vspace{0.5cm}
+
+La dilatación toma el valor máximo de un conjunto de píxeles, cabe destacar que el conjunto de píxeles a evaluar es una cuadrícula de 3x3 donde la casilla central es el píxel cuyo valor se 
+considera variar en función de los píxeles vecinos. Para llevar a cabo este proceso en una imagen y no dejar los píxeles del borde sin evaluar, se ha realizado primero un padding sobre la imagen.
+Con este objetvo se ha aplicado la función \textit{np.pad()} a la que se le ha indicado que debe añadir una línea de píxeles negros alrededor de la imagen principal de tal manera que al evaluar 
+una zona en búsqueda de máximos este borde no afecte. Finalmente se puede aplicar el operador, esto permite una ampliación de las partes blancas de la imagen binaria, haciendo más gruesas esas líneas
+y por tanto reduciendo la precisión de los detalles:
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{processed_data/dilated_0.jpg}
+    \caption{Dilatación de la binarización de la imagen 1, autoría propia.}
+    \label{fig:dilated}
+
+  \end{minipage}
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsection{Erosión}
+
+\vspace{0.5cm}
+
+La erosión es un procesado casi idéntico a la dilatación con la única modificación que en lugar de tomar los máximos de un conjunto de píxeles vecinos, se toman los mínimos de los píxeles.
+Es por ello que para que el padding no afecte a la asignación de valores, en este caso el borde extra será de píxeles blancos. Al realizar la erosión se logra una reducción en las partes blancas
+de la imagen, haciendo más finas las líneas y por tanto aumentando la precisión de la imagen pero no de los detalles finos:
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{processed_data/eroded_0.jpg}
+    \caption{Erosión de la binarización de la imagen 1, autoría propia.}
+    \label{fig:eroded}
+
+  \end{minipage}
+\end{figure}
 
 \end{document}
 
