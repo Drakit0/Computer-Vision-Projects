@@ -7,5 +7,7 @@
 \contentsline {subsection}{\numberline {2.1}Carga de imágenes}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Segmentación monocolor}{4}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Segmentación multicolor}{5}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Filtro Gaussiano y Detección de bordes: Sobel y Canny}{6}{section.3}%
-\contentsline {section}{\numberline {4}Operadores morfológicos}{6}{section.4}%
+\contentsline {section}{\numberline {3}Operador Gaussiano y detectores de bordes: Sobel y Canny}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Operador Gaussiano}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Detector Sobel}{7}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Operadores morfológicos}{8}{section.4}%
