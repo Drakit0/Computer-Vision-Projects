@@ -108,7 +108,7 @@ class BoW:
         """Initializes the feature extractor.
 
         Args:
-            feature_type: Feature extractor { SIFT, KAZE }.
+            feature_type: Feature extractor { SIFT, KAZE, AKAZE}.
 
         Raises:
             ValueError: If the feature type is not known.
