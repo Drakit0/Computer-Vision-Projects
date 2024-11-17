@@ -1,0 +1,14 @@
+\babel@toc {spanish}{}\relax 
+\setcounter {tocdepth}{-1}
+\contentsline {section}{Índice}{1}{section*.1}%
+\setcounter {tocdepth}{2}
+\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
+\contentsline {section}{\numberline {2}Detección de esquinas}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Método de Harris}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Método de Shi-Tomasi}{6}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Detección de líneas}{8}{section.3}%
+\contentsline {section}{\numberline {4}Estudio de puntos de interés}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Extracción manual de puntos de interés}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Trabajo con bolsas de palabras visuales}{13}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Creación de la bolsa de palabras visuales}{14}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Muestreo de resultados}{15}{subsubsection.4.2.2}%

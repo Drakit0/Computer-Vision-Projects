@@ -323,6 +323,8 @@ def matchFeatures(img1,kp1,des1,img2,kp2,des2):
 
         plt.imshow(newimg)
         plt.show()
+        
+        return newimg
     else:
         print("Not enough matches are found - %d/%d" % (len(good), MIN_MATCH_COUNT))
 
