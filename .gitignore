@@ -1,6 +1,7 @@
 **/*.zip
+**/*.xlsx
+**/*.csv
 **/__pycache__/
 **/dataset/
 **/processed_data/
-**/*.xlsx
-**/*.csv
+
