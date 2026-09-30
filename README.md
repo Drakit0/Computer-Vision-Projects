@@ -60,9 +60,11 @@ Work on video sequences (`slow_traffic_small.mp4`, `visiontraffic.avi`).
 
 Code: `lab4.ipynb`.
 
-## Course material
+## Licence
 
-The assignment scaffolding belongs to the course and is not covered by any licence: the to-do notebooks in `Lab_3` (`partA_to-do.ipynb`, `partB_to-do.ipynb`, `partC_to-do.ipynb`), the data supplied with the labs and the lab 4 videos. The ICAI logo in the reports is the university's. The repository has no licence.
+The code and reports written by the authors are under the MIT licence (see `LICENSE`).
+
+The licence does not cover course-provided material, which belongs to the course or the university: the to-do notebooks in `Lab_3` (`partA_to-do.ipynb`, `partB_to-do.ipynb`, `partC_to-do.ipynb`), the datasets supplied with the labs, the lab 4 videos and the ICAI logo that appears in the reports.
 
 ## Authors
 
