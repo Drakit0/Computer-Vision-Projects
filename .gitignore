@@ -5,3 +5,25 @@
 **/dataset/
 **/processed_data/
 
+
+# Python
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# LaTeX build files
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
