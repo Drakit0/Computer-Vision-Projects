@@ -6,16 +6,16 @@ They were done in pairs at Universidad Pontificia Comillas (ICAI), course 2024-2
 
 ## Lab 1: camera calibration (`lab_1`)
 
-Calibration of a stereo pair of cameras with a chessboard pattern, and undistortion of images taken with a fisheye lens.
+Calibration of the right camera of a stereo pair with a chessboard pattern, and undistortion of images taken with a fisheye lens.
 
 - Inner corners are found with `findChessboardCorners` and refined with `cornerSubPix` (30 iterations, 0.01 epsilon, 10 pixel window).
 - Intrinsics, distortion coefficients and per-image extrinsics come from `calibrateCamera`. The chessboard squares are 30 mm.
 - Fisheye images are corrected with `cv2.fisheye` undistortion maps and `remap`.
-- The report plots the RMS error against the number of images used and gives the RMS error for each camera.
+- The report plots the RMS error against the number of images used and gives the resulting RMS error.
 
-The report gives an RMS error of 0.09 for both stereo cameras.
+The report gives an RMS error of 0.09 for the calibration of the right camera.
 
-The report also lists the intrinsic matrices, distortion coefficients and extrinsics for both cameras.
+The report also lists the intrinsic matrices, distortion coefficients and extrinsics as given in the report.
 
 Code: `CalibrateCamera.py` (structured version) and `lab_1.ipynb` (first exploratory version). Data: `data/left`, `data/right`, `data/fisheye`.
 
