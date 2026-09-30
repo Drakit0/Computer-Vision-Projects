@@ -11,12 +11,9 @@ Calibration of a stereo pair of cameras with a chessboard pattern, and undistort
 - Inner corners are found with `findChessboardCorners` and refined with `cornerSubPix` (30 iterations, 0.01 epsilon, 10 pixel window).
 - Intrinsics, distortion coefficients and per-image extrinsics come from `calibrateCamera`. The chessboard squares are 30 mm.
 - Fisheye images are corrected with `cv2.fisheye` undistortion maps and `remap`.
-- The report plots the RMS error against the number of images used and reports the values below.
+- The report plots the RMS error against the number of images used and gives the RMS error for each camera.
 
-| Camera | RMS (from the report) |
-| --- | --- |
-| Left | 0.09 |
-| Right | 0.09 |
+The report gives an RMS error of 0.09 for both stereo cameras.
 
 The report also lists the intrinsic matrices, distortion coefficients and extrinsics for both cameras.
 
