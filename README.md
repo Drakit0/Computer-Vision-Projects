@@ -15,7 +15,7 @@ Calibration of the right camera of a stereo pair with a chessboard pattern, and 
 
 The report gives an RMS error of 0.09 for the calibration of the right camera.
 
-The report also lists the intrinsic matrices, distortion coefficients and extrinsics as given in the report.
+The report also lists the intrinsic matrices, distortion coefficients and extrinsics.
 
 Code: `CalibrateCamera.py` (structured version) and `lab_1.ipynb` (first exploratory version). Data: `data/left`, `data/right`, `data/fisheye`.
 
