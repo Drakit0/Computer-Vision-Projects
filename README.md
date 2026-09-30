@@ -2,7 +2,7 @@
 
 Four laboratory assignments for Computer Vision I (Visión por Ordenador I), written in Python with OpenCV.
 
-They were done in pairs at Universidad Pontificia Comillas (ICAI), course 2024-2025, autumn term 2024. Each lab folder contains the code, the data it runs on and the report (in Spanish, LaTeX source and PDF) that goes with it. The statement of labs 1, 3 and 4 is also included as a PDF.
+They were done in pairs at Universidad Pontificia Comillas (ICAI), course 2024-2025, autumn term 2024. Each lab folder contains the code, the data it runs on and the report (in Spanish, LaTeX source and PDF) that goes with it. The assignment statements are not included.
 
 ## Lab 1: camera calibration (`lab_1`)
 
@@ -59,6 +59,10 @@ Work on video sequences (`slow_traffic_small.mp4`, `visiontraffic.avi`).
 - Tracking: a Kalman filter with four state variables (position and velocity) and two measured ones (position), with the hue histogram back-projection of a selected region and `meanShift` to locate the object in each frame. The report shows that a transition matrix that includes the velocity follows the car bonnet better than the identity matrix.
 
 Code: `lab4.ipynb`.
+
+## Course material
+
+The assignment scaffolding belongs to the course and is not covered by any licence: the to-do notebooks in `Lab_3` (`partA_to-do.ipynb`, `partB_to-do.ipynb`, `partC_to-do.ipynb`), the data supplied with the labs and the lab 4 videos. The ICAI logo in the reports is the university's. The repository has no licence.
 
 ## Authors
 
